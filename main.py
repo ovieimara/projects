@@ -11,10 +11,14 @@ dictionary = {}
 
 
 def run_main():
+    input_file = sys.argv[1]
     print(f"name of the script : {sys.argv[0]}")
     print(f"reading : {sys.argv[1]}")
-    json_file_reader(sys.argv[1])
-    print(f"success")
+    if '.json' in input_file:
+        json_file_reader(sys.argv[1])
+        print(f"success")
+    else:
+        print('invalid input data file')
 
 def json_file_reader(data_file):
     # read object from data json file
@@ -75,11 +79,15 @@ def write_obj(dictionary_obj):
     # write dictionary to schema json file
     try:
         schema_file = sys.argv[2]
-        #with open("schema/schema_2.json", 'w') as outputFile:
-        with open(schema_file, 'w') as outputFile:
-            json.dump(dictionary_obj, outputFile, indent=2)
 
-        #print(f"{schema_file} SUCCESSFUL")
+        #with open("schema/schema_2.json", 'w') as outputFile:
+        if '.json' in schema_file:
+            with open(schema_file, 'w') as outputFile:
+                json.dump(dictionary_obj, outputFile, indent=2)
+        else:
+            print('invalid output schema file')
+
+            #print(f"{schema_file} SUCCESSFUL")
     except Exception as exception:
         print(exception)
 
