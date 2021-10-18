@@ -16,3 +16,4 @@
 7. You can pass any key into the 'test_list' array in the "test_jsonFileReader.py" file to verify it's existence in the schema file.
 
 Good luck.
+8. After the first run comment the first line of jsonreader.sh to prevent install reinstalling pytest
