@@ -11,9 +11,10 @@ dictionary = {}
 
 
 def run_main():
-    print(f"Name of the script : {sys.argv[0]=}")
-    print(f"Arguments of the script : {sys.argv[1:]=}")
+    print(f"name of the script : {sys.argv[0]}")
+    print(f"reading : {sys.argv[1]}")
     json_file_reader(sys.argv[1])
+    print(f"success")
 
 def json_file_reader(data_file):
     # read object from data json file
@@ -54,7 +55,7 @@ def recurse_message(message):
                     elif type(v) == dict:
                         create_schema_obj(k, 'dict')
                         recurse_message(v)
-        return write_obj(dictionary)
+            return write_obj(dictionary)
     except Exception as exception:
         print(exception)
 
@@ -77,6 +78,8 @@ def write_obj(dictionary_obj):
         #with open("schema/schema_2.json", 'w') as outputFile:
         with open(schema_file, 'w') as outputFile:
             json.dump(dictionary_obj, outputFile, indent=2)
+
+        #print(f"{schema_file} SUCCESSFUL")
     except Exception as exception:
         print(exception)
 

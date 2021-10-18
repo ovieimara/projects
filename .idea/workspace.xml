@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="145f28ff-18a2-4bef-a61d-581ee425b62d" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsonreader.sh" afterDir="false" />
+    <list default="true" id="145f28ff-18a2-4bef-a61d-581ee425b62d" name="Changes" comment="reademe.md, bash script, test_jsonfilereader">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pytest_cache/v/cache/nodeids" beforeDir="false" afterPath="$PROJECT_DIR$/.pytest_cache/v/cache/nodeids" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/schema_1.json" beforeDir="false" afterPath="$PROJECT_DIR$/schema/schema_1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/schema_2.json" beforeDir="false" afterPath="$PROJECT_DIR$/schema/schema_2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_jsonFileReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_jsonFileReader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634535412849</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="reademe.md, bash script, test_jsonfilereader">
+      <created>1634542918009</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634542918009</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="reademe.md, bash script, test_jsonfilereader" />
+    <option name="LAST_COMMIT_MESSAGE" value="reademe.md, bash script, test_jsonfilereader" />
   </component>
 </project>
