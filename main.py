@@ -4,6 +4,7 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 import json
+import os
 import sys
 
 keys = []
@@ -13,12 +14,21 @@ dictionary = {}
 def run_main():
     input_file = sys.argv[1]
     print(f"name of the script : {sys.argv[0]}")
-    print(f"reading : {sys.argv[1]}")
-    if '.json' in input_file:
-        json_file_reader(sys.argv[1])
+    print(f"reading : {input_file}")
+    if '.json' in input_file and check_file(input_file):
+        json_file_reader(input_file)
         print(f"success")
     else:
         print('invalid input data file')
+
+
+def check_file(file):
+    try:
+        return os.path.isfile(file)
+    except FileNotFoundError as exception:
+        print(exception)
+    return False
+
 
 def json_file_reader(data_file):
     # read object from data json file
