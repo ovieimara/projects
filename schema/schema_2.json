@@ -3,72 +3,72 @@
     "type": "dict",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "id": {
     "type": "string",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "nickname": {
     "type": "string",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "title": {
     "type": "string",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "accountType": {
     "type": "string",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "countryCode": {
     "type": "string",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "orientation": {
     "type": "string",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "time": {
     "type": "integer",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "acl": {
     "type": "array",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "publicFeed": {
     "type": "boolean",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "internationalCountries": {
     "type": "enum",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   },
   "topTraderFeed": {
     "type": "boolean",
     "tag": "",
     "description": "",
-    "required": "false"
+    "required": false
   }
 }

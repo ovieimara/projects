@@ -4,91 +4,86 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 import json
-import pickle
-import pprint
-#from test_jsonFileReader import test_jsonFile
+import sys
 
-duplicates = []
+keys = []
 dictionary = {}
-def jsonFileReader():
 
-    with open('data/data_2.json') as jsonFile:
-        data = json.load(jsonFile)
-        message = data['message']
-    print(message.keys())
-    #print(message['user'].keys())
-    recurseMessage(message)
 
-def recurseMessage(message):
+def run_main():
+    print(f"Name of the script : {sys.argv[0]=}")
+    print(f"Arguments of the script : {sys.argv[1:]=}")
+    json_file_reader(sys.argv[1])
+
+def json_file_reader(data_file):
+    # read object from data json file
     try:
-        if type(message == dict):
-            for k, v in message.items():
-                if k not in duplicates:
-                    if type(v) == str:
-                        # pprint.pprint(i)
-                        duplicates.append(k)
-                        createSchemaObj(k, "string")
-                    elif type(v) == int:
-                        # pprint.pprint(i)
-                        createSchemaObj(k, "integer")
-
-                    elif type(v) == bool:
-                        createSchemaObj(k, "boolean")
-
-                    elif type(v) == list:
-                        if len(v) > 0 and type(v[0]) == dict:
-                            #print(v[0])
-                            createSchemaObj(k, 'array')
-                            recurseMessage(v[0])
-                            data_type = 'array'
-                        elif len(v) > 0 and type(v[0]) == str:
-                            createSchemaObj(k, 'enum')
-                        elif len(v) == 0:
-                            createSchemaObj(k, "array")
-
-                    elif type(v) == dict:
-                        # pprint.pprint(i[1])
-                        # createSchemaObj(i[0], "enum")
-                        #pprint.pprint(v)
-                        createSchemaObj(k, 'dict')
-                        recurseMessage(v)
-        return writeObj(dictionary)
+        #with open('data/data_2.json') as jsonFile:
+        with open(data_file) as jsonFile:
+            data = json.load(jsonFile)
+            message = data['message']
+        recurse_message(message)
     except Exception as exception:
         print(exception)
 
 
-def createSchemaObj(key, dataType):
+def recurse_message(message):
+    # recurse through the json object returned from json_file_reader()
+    try:
+        if type(message == dict):
+            for k, v in message.items():
+                if k not in keys:
+                    if type(v) == str:
+                        keys.append(k)
+                        create_schema_obj(k, "string")
+                    elif type(v) == int:
+                        create_schema_obj(k, "integer")
+
+                    elif type(v) == bool:
+                        create_schema_obj(k, "boolean")
+
+                    elif type(v) == list:
+                        if len(v) > 0 and type(v[0]) == dict:
+                            create_schema_obj(k, 'array')
+                            recurse_message(v[0])
+                        elif len(v) > 0 and type(v[0]) == str:
+                            create_schema_obj(k, 'enum')
+                        elif len(v) == 0:
+                            create_schema_obj(k, "array")
+
+                    elif type(v) == dict:
+                        create_schema_obj(k, 'dict')
+                        recurse_message(v)
+        return write_obj(dictionary)
+    except Exception as exception:
+        print(exception)
+
+
+def create_schema_obj(key, data_type):
     # Data to be written
     obj = {
-        "type": dataType,
+        "type": data_type,
         "tag": "",
         "description": "",
-        "required": "false"
+        "required": False
     }
     dictionary.update({key: obj})
-    #print(dictionary.items())
-    #dicset = [{str(k), str(v)} for k, v in dictionary.items()]
-    #dic='\n'.join(dictionary.items())
-    #print(dic)
-    #a = "".join(f"{k}: {v}," for k, v in dictionary.items())
-    #print(a)
 
-def writeObj(a):
 
-    with open("schema/schema_2.json", 'w') as outputFile:
-        #outputFile.write("\n\n\n\n")
-        json.dump(a, outputFile, indent=2)
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def write_obj(dictionary_obj):
+    # write dictionary to schema json file
+    try:
+        schema_file = sys.argv[2]
+        #with open("schema/schema_2.json", 'w') as outputFile:
+        with open(schema_file, 'w') as outputFile:
+            json.dump(dictionary_obj, outputFile, indent=2)
+    except Exception as exception:
+        print(exception)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    jsonFileReader()
-    #test_jsonFile()
-
-    #print_hi('PyCharm')
+    #json_file_reader()
+    run_main()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

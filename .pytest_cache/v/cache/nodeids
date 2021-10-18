@@ -1,3 +1,5 @@
 [
-  "test_jsonFileReader.py::test_jsonFile"
+  "test_jsonFileReader.py::test_jsonFile",
+  "test_jsonFileReader.py::test_json_file",
+  "test_jsonFileReader.py::test_json_file_2"
 ]
