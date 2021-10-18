@@ -1,4 +1,4 @@
-1. Execute the jsonreader.sh file on the command line to run and test the functionality. Edit command as required.
+1. Execute the jsonreader.sh file on the command line to run and test the functionality. Edit commands in "jsonreader.sh" as required.
     $ ./jsonreader.sh
 
 2. You can edit the jsonreader.sh command line arguments with any input data file and output file of your choice.
